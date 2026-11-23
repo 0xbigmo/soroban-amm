@@ -335,8 +335,8 @@ a representative call sequence and asserts every pool event carries the leading
 | `venue_removed` | `pool` | `()` |
 | `admin_nominated` | — | `(current_admin: Address, new_admin: Address)` |
 | `admin_changed` | — | `(new_admin: Address)` |
-| `paused` | — | `(admin: Address)` |
-| `unpaused` | — | `(admin: Address)` |
+| `pause` | — | `(admin: Address)` |
+| `unpause` | — | `(admin: Address)` |
 | `upgraded` | — | `(new_wasm_hash: BytesN<32>)` |
 
 ### V2→V3 Migration — `contracts/v2_to_v3_migration/src/lib.rs`
@@ -676,6 +676,9 @@ count. Events marked unversioned carry their payload without the
 | `admin_nominated` | 1 | `current_admin`, `new_admin` | v1 |
 | `admin_changed` | 1 | `new_admin` | v1 |
 | `window_bounds_updated` | 1 | `min_secs`, `max_secs` | v1 |
+| `pause` | 1 | `admin` | v1 |
+| `unpause` | 1 | `admin` | v1 |
+| `upgraded` | 1 | `new_wasm_hash` | v1 |
 
 ### `batch_router`
 

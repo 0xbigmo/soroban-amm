@@ -160,6 +160,7 @@ Defined in [contracts/batch_auction/src/lib.rs](../contracts/batch_auction/src/l
 | 20 | `NotInitialized` | An admin function, `get_admin` or `accept_admin` was called before `initialize`. | Call `initialize` first. |
 | 21 | `InvalidBatchWindow` | `initialize` or `set_batch_window` was given a window outside the configured bounds (default 5 s to 1 day), for example `0` or `u64::MAX`. | Pass a window within `get_window_bounds()`. |
 | 22 | `InvalidWindowBounds` | `set_window_bounds` was given `min == 0`, `min > max`, a `max` above 30 days, or bounds that exclude the current window. | Pass `0 < min <= max <= 30 days` with the current window inside them. |
+| 23 | `Paused` | `submit_order`, `submit_order_cl`, or `settle_batch` was called while the auction is paused. | Wait for the admin to call `unpause`; escrow recovery entrypoints remain available. |
 
 ---
 
